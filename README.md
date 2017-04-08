@@ -1,7 +1,13 @@
 # ConsoleSurface
 A Node.js console UI for LiquidCore
 
-### Hello, Console!
+A `ConsoleSurface` is a UI surface for use with [LiquidCore](https://github.com/LiquidPlayer/LiquidCore).  It provides an
+ANSI-compatible Node.js console that can interact with a LiquidCore MicroService.  This surface is most useful for
+debugging.
+
+To see it in action, follow along with the tutorial below.  If you are looking for a more complex example, see [ExampleBitTorrentμService](https://github.com/LiquidPlayer/Examples/tree/master/ExampleBitTorrent%CE%BCService).
+
+## "Hello, Console!" Example
 
 (All of the code for this example can be found [here](https://github.com/LiquidPlayer/Examples/tree/master/HelloConsole).)
 
