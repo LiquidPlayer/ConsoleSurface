@@ -27,6 +27,12 @@ android {
     sourceSets { main { jniLibs.srcDirs 'libs' } }
 }
 
+repositories {
+    flatDir {
+        dirs '/Users/Eric/workspace/LiquidCore/LiquidCoreAndroid/build/outputs/aar'
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -34,7 +40,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.github.LiquidPlayer.LiquidCore:LiquidConsoleSurface-0.2.0:v0.2.1'
+    //compile 'com.github.LiquidPlayer.LiquidCore:LiquidConsoleSurface-0.2.0:v0.2.1'
+    compile(name:'LiquidCore-debug', ext:'aar')
 }
 
 // build a jar with source files
