@@ -1,6 +1,14 @@
 # ConsoleSurface
 A Node.js console UI for LiquidCore
 
+Version
+-------
+[0.2.1](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.2.1) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.2.1)
+
+[![Release](https://jitpack.io/v/LiquidPlayer/ConsoleSurface.svg)](https://jitpack.io/#LiquidPlayer/ConsoleSurface)
+
+A Node.js ANSI Console for Mobile Apps
+--------------------------------------
 A `ConsoleSurface` is a UI surface for use with [LiquidCore](https://github.com/LiquidPlayer/LiquidCore).  It provides an
 ANSI-compatible Node.js console that can interact with a LiquidCore MicroService.  This surface is most useful for
 debugging.
