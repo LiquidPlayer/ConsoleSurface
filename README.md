@@ -5,7 +5,19 @@ A Node.js console UI for LiquidCore
 
 (All of the code for this example can be found [here](https://github.com/LiquidPlayer/Examples/tree/master/HelloConsole).)
 
-Start by creating a new micro service, named `console.js` just like we did for the _Hallo, die Weld!_ example above, and fill it with the following:
+We will start by creating a very simple micro service.  This will be served from a machine on our network.  Start by creating a working directory somewhere.
+
+```
+$ mkdir ~/helloconsole
+$ cd ~/helloconsole
+```
+
+Then, install the LiquidCore server (aptly named _LiquidServer_) from `npm`:
+```
+$ npm install -g liquidserver
+```
+
+Now let's create our micro service.  Create a file in the `~/helloconsole` directory called `console.js` and fill it with the following contents:
 
 ```javascript
 // This will keep the process alive until an explicit process.exit() call
@@ -20,11 +32,11 @@ LiquidCore.attach('org.liquidplayer.surface.console.ConsoleSurface', (error) => 
 })
 ```
 
-Okay, so here's what happening.  We are once again setting in indefinite timer so that the
+Okay, so here's what happening.  We are setting an indefinite timer so that the
 process stays alive until we decide to kill it.  After that, we are requesting to attach to a
 surface with `LiquidCore.attach(surface, callback)`.  The _surface_ parameter is the canonical
-name of the surface (`org.liquidplayer.surfaces.console.ConsoleSurface` is so far the only
-choice) and _callback_ is a callback function that takes an error as its argument.  We are using
+name of the surface (`org.liquidplayer.surfaces.console.ConsoleSurface`)
+and _callback_ is a callback function that takes an error as its argument.  We are using
 the arrow function (`=>`) notation here.  ES6 is for real and it's time to get used to it.  If you
 want to use old-timey `function(error) { ... }` notation, that's ok too.
 
@@ -32,7 +44,11 @@ Once the surface has attached, which we'll know when our callback is called (wit
 then the surface is ready to use.  If _error_ is not undefined, then something went wrong and the _error_
 parameter will be the thrown exception.
 
-Don't forget our manifest file, `console.manifest`:
+Next, let's set up a manifest file.  Don't worry too much about this right
+now.  Basically, the manifest allows us to serve different versions based
+on the capabilities/permissions given by the host.  But for our simple example,
+we will serve the same file to any requestor.  Create a file in the same
+directory named `console.manifest`:
 
 ```javascript
 {
@@ -44,9 +60,22 @@ Don't forget our manifest file, `console.manifest`:
 }
 ```
 
-Run the server again and make sure you can navigate to the file correctly.
+You can now run your server.  Choose some port (say, 8080), or LiquidServer will create
+one for you:
 
-Now, let's create another host app.  We'll do exactly as we did above, only we will change the name:
+```
+$ liquidserver 8080
+```
+
+You should now see the message, `Listening on port 8080`.  Congratulations, you just
+created a micro service.  You can test that it is working correctly by navigating to
+`http://localhost:8080/console.js` in your browser.  You should see the contents of
+`console.js` that you just created with some wrapper code around it.  The wrapper is simply
+to allow multiple Node.js modules to be packed into a single file.  If you were to
+`require()` some other module, that module and its dependencies would get wrapped into this
+single file.
+
+You can leave that running or restart it later.  Now we need to create a host app.
 
 1. In Android Studio, create a new project by selecting `File -> New Project ...`
 2. Fill out the basics and press `Next` (Application Name: `HelloConsole`, Company Domain: `liquidplayer.org`, Package name: `org.liquidplayer.examples.helloconsole`)
@@ -54,7 +83,7 @@ Now, let's create another host app.  We'll do exactly as we did above, only we w
 4. Select `Empty Activity` and then `Next`
 5. The default options are ok.  Click `Finish`
 
-As before, make sure you link the LiquidCore library.  Go to your **root-level `build.grade`**
+Now link the `ConsoleSurface library`.  Go to your **root-level `build.grade`**
 file and add the `jitpack` dependency:
 
 ```
@@ -80,7 +109,7 @@ dependencies {
 
 ```
 
-Test it in the emulator (or on a device) to make sure all went to plan.  You should have your
+Test it in the emulator (or on a device) to make sure all went to plan.  You should have a basic
 "Hello World!" screen.
 
 We need to create a list of allowed surfaces.  For this, we will create an array resource.  Right-click
