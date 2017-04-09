@@ -97,7 +97,7 @@ You can leave that running or restart it later.  Now we need to create a host ap
 4. Select `Empty Activity` and then `Next`
 5. The default options are ok.  Click `Finish`
 
-Now link the `ConsoleSurface library`.  Go to your **root-level `build.grade`**
+Now link the `ConsoleSurface` library.  Go to your **root-level `build.grade`**
 file and add the `jitpack` dependency:
 
 ```
