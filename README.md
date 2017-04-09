@@ -113,7 +113,7 @@ allprojects {
 ...
 ```
 
-Then, add the LiquidCore library to your **app's `build.gradle`**:
+Then, add the ConsoleSurface library to your **app's `build.gradle`**:
 
 ```
 dependencies {
