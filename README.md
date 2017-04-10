@@ -195,7 +195,7 @@ device, a new instance will be launched and reattached.  Type `process.exit()`
 and the same thing happens.
 
 Of course it is possible to use a [`LiquidView`](https://liquidplayer.github.io/LiquidCoreAndroid/0.2.2/org/liquidplayer/service/LiquidView.html) programmatically and dynamically set its available surfaces
-and URI.
+and URI.  The [ExampleBitTorrentμService](https://github.com/LiquidPlayer/Examples/tree/master/ExampleBitTorrent%CE%BCService) project uses LiquidView programmatically.
 
 License
 -------
