@@ -49,7 +49,7 @@ LiquidCore.attach('org.liquidplayer.surface.console.ConsoleSurface', (error) => 
 Okay, so here's what happening.  We are setting an indefinite timer so that the
 process stays alive until we decide to kill it.  After that, we are requesting to attach to a
 surface with `LiquidCore.attach(surface, callback)`.  The _surface_ parameter is the canonical
-name of the surface (`org.liquidplayer.surfaces.console.ConsoleSurface`)
+name of the surface (`org.liquidplayer.surface.console.ConsoleSurface`)
 and _callback_ is a callback function that takes an error as its argument.  We are using
 the arrow function (`=>`) notation here.  ES6 is for real and it's time to get used to it.  If you
 want to use old-timey `function(error) { ... }` notation, that's ok too.
