@@ -38,14 +38,14 @@ import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.support.v7.widget.AppCompatTextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-class AnsiConsoleTextView extends TextView {
+class AnsiConsoleTextView extends AppCompatTextView {
     public AnsiConsoleTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         stream = new ConsoleOutputStream(new ByteArrayOutputStream());

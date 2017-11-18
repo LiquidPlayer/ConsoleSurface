@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2009, Progress Software Corporation and/or its 
  * subsidiaries or affiliates.  All rights reserved.
  *
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
+/*
  * Edited by Eric Lange for LiquidPlayer
  * Copyright (C) 2016, Eric Lange.  All Rights Reserved.
  */

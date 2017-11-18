@@ -38,6 +38,7 @@ import android.os.Looper;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.view.View;
 
 import org.liquidplayer.javascript.JSContext;
 import org.liquidplayer.javascript.JSException;
@@ -47,6 +48,7 @@ import org.liquidplayer.javascript.JSValue;
 import org.liquidplayer.node.Process;
 import org.liquidplayer.service.MicroService;
 import org.liquidplayer.service.Surface;
+import org.liquidplayer.service.Synchronizer;
 
 import java.util.HashMap;
 
@@ -92,6 +94,11 @@ public class ConsoleSurface extends ConsoleView implements Surface {
         }
     }
 
+    @Override
+    public void bind(MicroService service, JSContext context, Synchronizer synchronizer) {
+        // Nothing to do -- everything happens during attach
+    }
+
     /**
      * ConsoleSurface is somewhat unusal for Surfaces.  It can be attached and detached at any
      * time during the MicroService lifecycle, as it dynamically overrides stderr, stdout and
@@ -101,10 +108,11 @@ public class ConsoleSurface extends ConsoleView implements Surface {
      * @param service  The MicroService to attach
      */
     @Override
-    public void attach(MicroService service, Runnable onAttached) {
+    public View attach(MicroService service, Runnable onAttached) {
         session = ConsoleSession.newSession(service, onAttached);
         session.setCurrentView(this);
         uuid = service.getId();
+        return this;
     }
 
     @Override

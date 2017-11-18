@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2009, Progress Software Corporation and/or its 
  * subsidiaries or affiliates.  All rights reserved.
  *
@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
+/*
  * Edited by Eric Lange for LiquidPlayer
  * Copyright (C) 2016, Eric Lange.  All Rights Reserved.
  */
@@ -53,7 +53,7 @@ class AnsiOutputStream extends FilterOutputStream {
     private byte[] buffer = new byte[MAX_ESCAPE_SEQUENCE_LENGTH];
     private int pos = 0;
     private int startOfValue;
-    private final ArrayList<Object> options = new ArrayList<Object>();
+    private final ArrayList<Object> options = new ArrayList<>();
 
     private static final int LOOKING_FOR_FIRST_ESC_CHAR = 0;
     private static final int LOOKING_FOR_SECOND_ESC_CHAR = 1;
@@ -108,9 +108,9 @@ class AnsiOutputStream extends FilterOutputStream {
                 } else if (';' == data) {
                     options.add(null);
                 } else if ('?' == data) {
-                    options.add(new Character('?'));
+                    options.add('?');
                 } else if ('=' == data) {
-                    options.add(new Character('='));
+                    options.add('=');
                 } else {
                     reset(processEscapeCommand(options, data));
                 }
@@ -122,7 +122,7 @@ class AnsiOutputStream extends FilterOutputStream {
                 buffer[pos++] = (byte) data;
                 if (!('0' <= data && data <= '9')) {
                     String strValue = new String(buffer, startOfValue, (pos - 1) - startOfValue, "UTF-8");
-                    Integer value = new Integer(strValue);
+                    Integer value = Integer.valueOf(strValue);
                     options.add(value);
                     if (data == ';') {
                         state = LOOKING_FOR_NEXT_ARG;
@@ -159,13 +159,11 @@ class AnsiOutputStream extends FilterOutputStream {
                 buffer[pos++] = (byte) data;
                 if (';' == data) {
                     String strValue = new String(buffer, startOfValue, (pos - 1) - startOfValue, "UTF-8");
-                    Integer value = new Integer(strValue);
+                    Integer value = Integer.valueOf(strValue);
                     options.add(value);
                     startOfValue = pos;
                     state = LOOKING_FOR_OSC_PARAM;
-                } else if ('0' <= data && data <= '9') {
-                    // already pushed digit to buffer, just keep looking
-                } else {
+                } else if (!('0' <= data && data <= '9')) {
                     // oops, did not expect this
                     reset(false);
                 }
@@ -179,9 +177,9 @@ class AnsiOutputStream extends FilterOutputStream {
                     reset(processOperatingSystemCommand(options));
                 } else if (FIRST_ESC_CHAR == data) {
                     state = LOOKING_FOR_ST;
-                } else {
+                } /*else {
                     // just keep looking while adding text
-                }
+                }*/
                 break;
 
             case LOOKING_FOR_ST:
@@ -205,9 +203,8 @@ class AnsiOutputStream extends FilterOutputStream {
     /**
      * Resets all state to continue with regular parsing
      * @param skipBuffer if current buffer should be skipped or written to out
-     * @throws IOException
      */
-    private void reset(boolean skipBuffer) throws IOException {
+    private void reset(boolean skipBuffer) /*throws IOException*/ {
         /*
         FIXME!
         if (!skipBuffer) {
@@ -273,7 +270,7 @@ class AnsiOutputStream extends FilterOutputStream {
                     for (Object next : options) {
                         if (next != null) {
                             count++;
-                            int value = ((Integer) next).intValue();
+                            int value = ((Integer) next);
                             if (30 <= value && value <= 37) {
                                 processSetForegroundColor(value - 30);
                             } else if (40 <= value && value <= 47) {
@@ -486,7 +483,7 @@ class AnsiOutputStream extends FilterOutputStream {
             throw new IllegalArgumentException();
         if (!value.getClass().equals(Integer.class))
             throw new IllegalArgumentException();
-        return ((Integer) value).intValue();
+        return ((Integer) value);
     }
 
     private int optionInt(ArrayList<Object> options, int index, int defaultValue) {
@@ -495,7 +492,7 @@ class AnsiOutputStream extends FilterOutputStream {
             if (value == null) {
                 return defaultValue;
             }
-            return ((Integer) value).intValue();
+            return ((Integer) value);
         }
         return defaultValue;
     }

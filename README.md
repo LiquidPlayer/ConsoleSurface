@@ -3,7 +3,7 @@ A Node.js console UI for LiquidCore
 
 Version
 -------
-[0.2.2](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.2.2) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.2.2)
+[0.3.0](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.3.0) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.3.0)
 
 [![Release](https://jitpack.io/v/LiquidPlayer/ConsoleSurface.svg)](https://jitpack.io/#LiquidPlayer/ConsoleSurface)
 
@@ -118,7 +118,7 @@ Then, add the ConsoleSurface library to your **app's `build.gradle`**:
 ```
 dependencies {
     ...
-	  compile 'com.github.LiquidPlayer:ConsoleSurface:0.2.2'
+	  compile 'com.github.LiquidPlayer:ConsoleSurface:0.3.0'
 }
 
 ```
@@ -182,7 +182,7 @@ LiquidCore_ {
   _events: {},
   _eventsCount: 0,
   _maxListeners: undefined,
-  availableSurfaces: { 'org.liquidplayer.surface.console.ConsoleSurface': '0.2.2' },
+  availableSurfaces: { 'org.liquidplayer.surface.console.ConsoleSurface': '0.3.0' },
   attach: [Function: attach_],
   detach: [Function: detach_] }
 ```
@@ -194,7 +194,7 @@ Type `LiquidCore.detach()` in your console and Poof! Your surface is gone.  If y
 device, a new instance will be launched and reattached.  Type `process.exit()`
 and the same thing happens.
 
-Of course it is possible to use a [`LiquidView`](https://liquidplayer.github.io/LiquidCoreAndroid/0.2.2/org/liquidplayer/service/LiquidView.html) programmatically and dynamically set its available surfaces
+Of course it is possible to use a [`LiquidView`](https://liquidplayer.github.io/LiquidCoreAndroid/0.3.0/org/liquidplayer/service/LiquidView.html) programmatically and dynamically set its available surfaces
 and URI.  The [ExampleBitTorrentμService](https://github.com/LiquidPlayer/Examples/tree/master/ExampleBitTorrent%CE%BCService) project uses LiquidView programmatically.
 
 License

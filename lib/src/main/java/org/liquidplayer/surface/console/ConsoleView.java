@@ -185,8 +185,8 @@ class ConsoleView extends RelativeLayout implements AnsiConsoleTextView.Listener
     private Handler uiThread = new Handler(Looper.getMainLooper());
 
     private void loadViews() {
-        inputBox = (EditText) findViewById(R.id.inputBox);
-        scrollView = (NestedScrollView) findViewById(R.id.scroll);
+        inputBox = findViewById(R.id.inputBox);
+        scrollView = findViewById(R.id.scroll);
 
         inputBox.setFocusableInTouchMode(true);
         inputBox.requestFocus();
@@ -194,8 +194,8 @@ class ConsoleView extends RelativeLayout implements AnsiConsoleTextView.Listener
         inputBox.setOnKeyListener(onKeyListener);
         inputBox.setEnabled(false);
 
-        upHistory = (ImageButton) findViewById(R.id.up_history);
-        downHistory = (ImageButton) findViewById(R.id.down_history);
+        upHistory = findViewById(R.id.up_history);
+        downHistory = findViewById(R.id.down_history);
 
         upHistory.setOnClickListener(onUpClick);
         downHistory.setOnClickListener(onDownClick);
@@ -205,7 +205,7 @@ class ConsoleView extends RelativeLayout implements AnsiConsoleTextView.Listener
         ViewTreeObserver vto = scrollView.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(onLayout);
 
-        consoleTextView = (AnsiConsoleTextView) findViewById(R.id.console_text);
+        consoleTextView = findViewById(R.id.console_text);
         consoleTextView.addListener(this);
         // FIXME: Don't forget to removeListener on shutdown
 
