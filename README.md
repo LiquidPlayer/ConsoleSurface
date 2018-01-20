@@ -3,7 +3,7 @@ A Node.js console UI for LiquidCore
 
 Version
 -------
-[0.3.0](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.3.0) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.3.0)
+[0.4.0](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.4.0) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.4.0)
 
 [![Release](https://jitpack.io/v/LiquidPlayer/ConsoleSurface.svg)](https://jitpack.io/#LiquidPlayer/ConsoleSurface)
 
@@ -118,8 +118,8 @@ Then, add the ConsoleSurface library to your **app's `build.gradle`**:
 ```
 dependencies {
     ...
-	  implementation 'com.github.LiquidPlayer:ConsoleSurface:0.3.0'
-	  implementation 'com.github.LiquidPlayer:LiquidCore:0.3.0'
+	  implementation 'com.github.LiquidPlayer:ConsoleSurface:0.4.0'
+	  implementation 'com.github.LiquidPlayer:LiquidCore:0.4.0'
 }
 
 ```
@@ -184,7 +184,7 @@ LiquidCore_ {
   _events: {},
   _eventsCount: 0,
   _maxListeners: undefined,
-  availableSurfaces: { 'org.liquidplayer.surface.console.ConsoleSurface': '0.3.0' },
+  availableSurfaces: { 'org.liquidplayer.surface.console.ConsoleSurface': '0.4.0' },
   attach: [Function: attach_],
   detach: [Function: detach_] }
 ```
