@@ -118,10 +118,12 @@ Then, add the ConsoleSurface library to your **app's `build.gradle`**:
 ```
 dependencies {
     ...
-	  compile 'com.github.LiquidPlayer:ConsoleSurface:0.3.0'
+	  implementation 'com.github.LiquidPlayer:ConsoleSurface:0.3.0'
+	  implementation 'com.github.LiquidPlayer:LiquidCore:0.3.0'
 }
 
 ```
+(Note, replace `implementation` with `compile` if you are using older build tools)
 
 Test it in the emulator (or on a device) to make sure all went to plan.  You should have a basic
 "Hello World!" screen.
