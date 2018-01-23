@@ -3,7 +3,7 @@ A Node.js console UI for LiquidCore
 
 Version
 -------
-[0.4.0](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.4.0) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.4.0)
+[0.4.4](https://github.com/LiquidPlayer/ConsoleSurface/releases/tag/0.4.4) - Get it through [JitPack](https://jitpack.io/#LiquidPlayer/ConsoleSurface/0.4.4)
 
 [![Release](https://jitpack.io/v/LiquidPlayer/ConsoleSurface.svg)](https://jitpack.io/#LiquidPlayer/ConsoleSurface)
 
