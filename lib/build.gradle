@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 4
-        versionName "0.4.4"
+        versionName "0.4.6"
         setProperty("archivesBaseName", "LiquidConsoleSurface")
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -33,7 +33,7 @@ dependencies {
     })
     implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
-    implementation 'com.github.LiquidPlayer:LiquidCore:0.4.4'
+    implementation 'com.github.LiquidPlayer:LiquidCore:0.4.6'
 }
 
 // build a jar with source files
